@@ -262,7 +262,7 @@ f'''<section class="hero"><div class="wrap grid2">
       <div><dt>Telehealth</dt><span>Anywhere in Illinois, Monday to Friday</span></div>
       <div><dt>Hours</dt><span data-cfg="hours">Monday to Friday, 9 am to 5 pm</span></div>
       <div><dt>Languages</dt><span>English and French</span></div>
-      <div><dt>Insurance</dt><span><ul class="list" data-cfg="insurance" style="margin-top:4px"><li>BCBSIL</li><li>Aetna</li><li>UnitedHealthcare / Optum</li><li>Blue Cross Community Health Plans (BCCHP)</li></ul></span></div>
+      <div><dt>Insurance</dt><span><div class="ins-grid ins-grid--mini"><figure><img src="img/logo-bcbsil.png" alt="Blue Cross and Blue Shield of Illinois logo" loading="lazy" decoding="async"><figcaption>Blue Cross and Blue Shield of Illinois</figcaption></figure><figure><img src="img/logo-aetna.png" alt="Aetna logo" loading="lazy" decoding="async"><figcaption>Aetna</figcaption></figure><figure><img src="img/logo-uhc.png" alt="UnitedHealthcare logo" loading="lazy" decoding="async"><figcaption>UnitedHealthcare / Optum</figcaption></figure><figure><img src="img/logo-bcchp.png" alt="Blue Cross Community Health Plans logo" loading="lazy" decoding="async"><figcaption>Blue Cross Community Health Plans (BCCHP)</figcaption></figure></div></span></div>
     </dl></div>
   <div class="reveal">{pic("waiting-room", "The BrainEase waiting room, with Braïna's terrarium", w=1400, h=788, pos="50% 50%").replace('class="photo"', 'class="photo" style="aspect-ratio:4/3"')}</div>
 </div></section>
@@ -311,7 +311,7 @@ phead('Services', 'Services built around the whole person.', 'Four services that
     <ul class="list no"><li>Couples or marriage therapy</li><li>Long-term psychotherapy on its own</li><li>Requests outside psychiatric care</li><li>Emergency or crisis care: call or text 988, or call 911</li></ul>
     <p class="small">Not sure? The free intro call is the place to ask.</p></div>
 </div></section>
-<section class="band"><div class="wrap stack reveal"><h2>Insurance</h2><p class="lead">We accept:</p><ul class="list" data-cfg="insurance"><li>BCBSIL</li><li>Aetna</li><li>UnitedHealthcare / Optum</li><li>Blue Cross Community Health Plans (BCCHP)</li></ul><p class="small">Another plan, or no insurance? Ask us about your options.</p></div></section>
+<section class="band"><div class="wrap stack reveal"><h2>Insurance</h2><p class="lead">We accept:</p><div class="ins-grid"><figure><img src="img/logo-bcbsil.png" alt="Blue Cross and Blue Shield of Illinois logo" loading="lazy" decoding="async"><figcaption>Blue Cross and Blue Shield of Illinois</figcaption></figure><figure><img src="img/logo-aetna.png" alt="Aetna logo" loading="lazy" decoding="async"><figcaption>Aetna</figcaption></figure><figure><img src="img/logo-uhc.png" alt="UnitedHealthcare logo" loading="lazy" decoding="async"><figcaption>UnitedHealthcare / Optum</figcaption></figure><figure><img src="img/logo-bcchp.png" alt="Blue Cross Community Health Plans logo" loading="lazy" decoding="async"><figcaption>Blue Cross Community Health Plans (BCCHP)</figcaption></figure></div><p class="small">Another plan, or no insurance? Ask us about your options.</p></div></section>
 {cta_band()}''')
 
 # ---------- GENETIC TESTING ----------
@@ -363,7 +363,7 @@ phead('For Professionals', 'Now accepting referrals.', 'Fast, warm handoffs for 
 </div></section>
 <section class="band sand"><div class="wrap grid2">
   <div class="stack reveal"><h2>Who we see</h2><ul class="list"><li>Patients aged 8 to 65</li><li>Anxiety disorders, ADHD, depression and mood disorders, trauma</li><li>In person in Bolingbrook on Thursdays, telehealth across Illinois</li><li>English and French</li></ul></div>
-  <div class="stack reveal"><h2>Insurance</h2><ul class="list" data-cfg="insurance"><li>BCBSIL</li><li>Aetna</li><li>UnitedHealthcare / Optum</li><li>Blue Cross Community Health Plans (BCCHP)</li></ul></div>
+  <div class="stack reveal"><h2>Insurance</h2><div class="ins-grid ins-grid--mini"><figure><img src="img/logo-bcbsil.png" alt="Blue Cross and Blue Shield of Illinois logo" loading="lazy" decoding="async"><figcaption>Blue Cross and Blue Shield of Illinois</figcaption></figure><figure><img src="img/logo-aetna.png" alt="Aetna logo" loading="lazy" decoding="async"><figcaption>Aetna</figcaption></figure><figure><img src="img/logo-uhc.png" alt="UnitedHealthcare logo" loading="lazy" decoding="async"><figcaption>UnitedHealthcare / Optum</figcaption></figure><figure><img src="img/logo-bcchp.png" alt="Blue Cross Community Health Plans logo" loading="lazy" decoding="async"><figcaption>Blue Cross Community Health Plans (BCCHP)</figcaption></figure></div></div>
 </div></section>''')
 
 # ---------- VIDEOS ----------
