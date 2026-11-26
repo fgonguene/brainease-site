@@ -12,7 +12,7 @@ const BE = {
   inPerson: 'Thursdays, in Bolingbrook',
   insurance: ['BCBSIL', 'Aetna', 'UnitedHealthcare / Optum', 'Blue Cross Community Health Plans (BCCHP)'],
   /* Back end (set by Muse). While null, the site runs in demo mode and sends nothing. */
-  bookingEndpoint: null,   // POST JSON, see the technical file
+  bookingEndpoint: 'https://script.google.com/macros/s/AKfycby2sryCNqU14AeE_pthcZXuAoyDUHU4ZsPymjYBCX595zWYjz6vbFQmajD5MNCAKB5Ihg/exec',   // POST JSON, see the technical file
   chatEndpoint: null       // POST JSON {lang, messages}, returns {reply}
 };
 window.BE = BE;
@@ -98,8 +98,10 @@ const validate = d => {
 const sendBooking = async d => {
   if (d.website) return true;            // honeypot: silently ignore bots
   if (!BE.bookingEndpoint) { await new Promise(r => setTimeout(r, 700)); return 'demo'; }
-  const r = await fetch(BE.bookingEndpoint, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(d)});
-  if (!r.ok) throw new Error('send');
+  // The relay runs on the clinic's Google account (Apps Script): it cannot answer
+  // CORS, so the request goes out as a simple no-cors POST and a completed send
+  // counts as delivered. A network failure still throws and shows the fallback.
+  await fetch(BE.bookingEndpoint, {method: 'POST', mode: 'no-cors', headers: {'Content-Type': 'text/plain'}, body: JSON.stringify(d)});
   return true;
 };
 const wireBooking = (root, onDone) => {
