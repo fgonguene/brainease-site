@@ -192,7 +192,7 @@ def relink(path, doc):
         elif url.endswith('/') or url.split('#')[0].endswith('/'):
             base, _, frag = url.partition('#'); url = base + 'index.html' + ('#' + frag if frag else '')
         return f'{attr}="{pre}{url}'
-    return re.sub(r'(href|src|srcset)="/(?!/)([^"]*)', lambda m: fix(m) + '', doc)
+    return re.sub(r'(href|src|srcset|poster)="/(?!/)([^"]*)', lambda m: fix(m) + '', doc)
 
 PAGES = {}
 
@@ -367,6 +367,13 @@ phead('For Professionals', 'Now accepting referrals.', 'Fast, warm handoffs for 
 </div></section>''')
 
 # ---------- VIDEOS ----------
+def ep_card(i, t, d):
+    if i == 0:
+        th = ('<video controls preload="none" playsinline src="/video/take-a-seat-ep1-the-kind-no.mp4" '
+              'poster="/video/take-a-seat-ep1-poster.jpg" aria-label="Watch Episode 1: The Kind No"></video><span>Ep. 1</span>')
+    else:
+        th = f'{scene("ep")}<span>Ep. {i + 1}</span>'
+    return f'<article class="ep reveal"><div class="th">{th}</div><div class="bd"><h3>{t}</h3><p>{d}</p></div></article>'
 EPS = [('The Kind No', 'Setting limits without breaking ties'), ('Heavy Rooms', 'When a relationship starts to weigh on you'),
        ('Wait, Did That Happen?', 'When someone makes you doubt what you saw'), ('Shorter Days', 'Keeping a gentle rhythm in winter'),
        ('Phones at the Table', 'When screens wear relationships down'), ('Asking Is Strong', 'Asking for help, at work and at home'),
@@ -376,9 +383,8 @@ PAGES['/videos.html'] = ('videos.html', 'Take a Seat, short videos with Eze and 
 phead('Videos', 'Take a Seat, the series.', 'Short videos about the small things of life with other people. Eze sets the scene, and Braïna the tortoise closes each story with a word of wisdom.') + f'''
 <section class="band" style="padding-top:0"><div class="wrap">
   <div class="grid2" style="margin-bottom:40px"><div class="stack reveal"><h2>Meet the duo.</h2><p class="lead"><b>Eze</b> (say it “easy”) is the little figure sitting on our E: curious, warm, always ready to welcome you. <b>Braïna</b> is the wise tortoise: slow, clear-sighted, inspired by Kulu, the tortoise of Cameroonian tales. Braïna and Eze: Brain and Ease.</p></div><div class="reveal" style="max-width:440px;width:100%;justify-self:center">{scene("duo")}</div></div>
-  <div class="stack reveal"><p class="kicker">Season 1 · premiering soon</p></div>
-  <div class="eps" style="margin-top:18px">''' + ''.join(
-    f'<article class="ep reveal"><div class="th">{scene("ep")}<span>Ep. {i + 1}</span></div><div class="bd"><h3>{t}</h3><p>{d}</p></div></article>' for i, (t, d) in enumerate(EPS)) + '''</div>
+  <div class="stack reveal"><p class="kicker">Season 1 · Episode 1 now playing</p></div>
+  <div class="eps" style="margin-top:18px">''' + ''.join(ep_card(i, t, d) for i, (t, d) in enumerate(EPS)) + '''</div>
   <p class="small" style="margin-top:24px">Episodes will also be on YouTube, Instagram, TikTok and Facebook. These videos share everyday reflections; they are not medical advice.</p>
 </div></section>''' + cta_band())
 
